@@ -6,7 +6,7 @@ const SearchInterface = () => {
   return (
     <div className="flex flex-col h-screen">
       {/* Navbar */}
-      <div className="flex items-center w-[662px] h-[50px] bg-white rounded-full border border-[#E6E8EB] px-6 py-3">
+      <div className="flex items-center w-[662px] h-[50px] bg-white rounded-full border border-[#E6E8EB] px-6 py-3 mb-4">
         <div className="flex-1 flex items-center gap-4">
           <div className="flex items-center w-[200px] h-4 max-w-[200px]">
             <span className="font-['Neue_Montreal'] text-base font-medium leading-4 tracking-[0.05em]">
