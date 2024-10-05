@@ -15,13 +15,13 @@ export default function SearchInterface({ onClose }: SearchInterfaceProps) {
   const to = searchParams.get("to");
   const date = searchParams.get("date") || "Jun 25 - Jul 2";
 
-  // You might want to create a mapping of airport codes to full names
-  const airportNames = {
+  // Airport names mapping
+  const airportNames: { [key: string]: string } = {
     CDG: "Paris Charles De Gau...",
     DXB: "Dubai International...",
     // Add more as needed
   };
- 
+
   return (
     <div className="flex flex-col h-screen">
       {/* Dynamic Navbar */}
@@ -33,7 +33,7 @@ export default function SearchInterface({ onClose }: SearchInterfaceProps) {
                 {from}
               </span>
               <span className="font-['Neue_Montreal'] text-base font-normal leading-4 tracking-[0.05em] text-gray-400 ml-1 truncate">
-                {airportNames[from] || ""}
+                {from && airportNames[from] ? airportNames[from] : ""}
               </span>
             </div>
             <div className="w-px h-6 bg-[#E6E8EB]" />
@@ -42,7 +42,7 @@ export default function SearchInterface({ onClose }: SearchInterfaceProps) {
                 {to}
               </span>
               <span className="font-['Neue_Montreal'] text-base font-normal leading-4 tracking-[0.05em] text-gray-400 ml-1 truncate">
-                {airportNames[to] || ""}
+                {to && airportNames[to] ? airportNames[to] : ""}
               </span>
             </div>
             <div className="w-px h-6 bg-[#E6E8EB]" />
