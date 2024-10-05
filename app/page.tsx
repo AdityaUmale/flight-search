@@ -21,10 +21,18 @@ export default function Home() {
   const router = useRouter()
 
   const handleSearch = () => {
+    if (!fromAirport || !toAirport) {
+      alert("Please select both origin and destination airports");
+      return;
+    }
+
     setIsLoading(true)
+    const fromCode = fromAirport.split('(')[1].split(')')[0];
+    const toCode = toAirport.split('(')[1].split(')')[0];
+
     setTimeout(() => {
-      router.push('/search-results')
-    }, 6000)
+      router.push(`/search-results?from=${fromCode}&to=${toCode}`)
+    }, 2000)
   }
 
   const handleCloseSearch = () => {
@@ -40,6 +48,7 @@ export default function Home() {
       setShowToDropdown(false)
     }
   }
+
 
   return (
     <div className="container mx-auto p-8 w-12000px h-900px ml-120px">
