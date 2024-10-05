@@ -64,6 +64,9 @@
     @apply bg-background text-foreground;
   }
 }
+.bg-gradient-loading {
+  background: linear-gradient(90deg, rgba(58, 104, 137, 0.5) 0%, #3A6889 45.63%, rgba(58, 104, 137, 0.5) 100%);
+}
 
 @keyframes loading {
   0% {

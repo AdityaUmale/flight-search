@@ -1,0 +1,105 @@
+
+{
+    "connections": [
+      {
+        "from": "DEL",
+        "to": "BOM",
+        "airline": "Air India",
+        "flightNumber": "AI101",
+        "departureTime": "08:00",
+        "arrivalTime": "10:00",
+        "duration": "2h 00m",
+        "price": 150
+      },
+      {
+        "from": "BOM",
+        "to": "JFK",
+        "airline": "Emirates",
+        "flightNumber": "EK204",
+        "departureTime": "12:30",
+        "arrivalTime": "23:45",
+        "duration": "16h 15m",
+        "price": 750
+      },
+      {
+        "from": "JFK",
+        "to": "DXB",
+        "airline": "Emirates",
+        "flightNumber": "EK202",
+        "departureTime": "11:00",
+        "arrivalTime": "08:00",
+        "duration": "12h 00m",
+        "price": 800
+      },
+      {
+        "from": "DXB",
+        "to": "LHR",
+        "airline": "British Airways",
+        "flightNumber": "BA106",
+        "departureTime": "10:30",
+        "arrivalTime": "14:45",
+        "duration": "7h 15m",
+        "price": 450
+      },
+      {
+        "from": "LHR",
+        "to": "SIN",
+        "airline": "Singapore Airlines",
+        "flightNumber": "SQ317",
+        "departureTime": "21:25",
+        "arrivalTime": "17:55",
+        "duration": "13h 30m",
+        "price": 900
+      },
+      {
+        "from": "SIN",
+        "to": "LAX",
+        "airline": "Singapore Airlines",
+        "flightNumber": "SQ12",
+        "departureTime": "09:00",
+        "arrivalTime": "09:15",
+        "duration": "15h 15m",
+        "price": 1100
+      },
+      {
+        "from": "LAX",
+        "to": "PEK",
+        "airline": "Air China",
+        "flightNumber": "CA988",
+        "departureTime": "01:40",
+        "arrivalTime": "05:20",
+        "duration": "12h 40m",
+        "price": 850
+      },
+      {
+        "from": "PEK",
+        "to": "SYD",
+        "airline": "Qantas",
+        "flightNumber": "QF108",
+        "departureTime": "20:00",
+        "arrivalTime": "09:30",
+        "duration": "11h 30m",
+        "price": 700
+      },
+      {
+        "from": "SYD",
+        "to": "HND",
+        "airline": "Japan Airlines",
+        "flightNumber": "JL52",
+        "departureTime": "09:15",
+        "arrivalTime": "17:25",
+        "duration": "9h 10m",
+        "price": 600
+      },
+      {
+        "from": "HND",
+        "to": "DEL",
+        "airline": "All Nippon Airways",
+        "flightNumber": "NH837",
+        "departureTime": "11:25",
+        "arrivalTime": "17:25",
+        "duration": "9h 00m",
+        "price": 550
+      }
+    ]
+  }

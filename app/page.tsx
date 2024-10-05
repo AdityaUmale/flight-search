@@ -1,3 +1,4 @@
+// app/page.tsx
 'use client'
 
 import { useState } from "react"
@@ -8,22 +9,41 @@ import { Calendar, ChevronDown, Search, Loader } from "lucide-react"
 import { LocateFixed } from "lucide-react"
 import { ArrowLeftRight } from "lucide-react"
 import SearchInterface from "@/components/SearchInterface"
+import AirportDropdown from "@/components/AirportDropdown"
+import airportsData from "@/data/airports.json"
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(false)
+  const [showFromDropdown, setShowFromDropdown] = useState(false)
+  const [showToDropdown, setShowToDropdown] = useState(false)
+  const [fromAirport, setFromAirport] = useState('')
+  const [toAirport, setToAirport] = useState('')
   const router = useRouter()
 
   const handleSearch = () => {
     setIsLoading(true)
-    // Simulate API call or data processing
     setTimeout(() => {
       router.push('/search-results')
-    }, 3000) // Redirect after 3 seconds
+    }, 6000)
+  }
+
+  const handleCloseSearch = () => {
+    setIsLoading(false)
+  }
+
+  const handleSelectAirport = (type, airport) => {
+    if (type === 'from') {
+      setFromAirport(`${airport.name} (${airport.code})`)
+      setShowFromDropdown(false)
+    } else {
+      setToAirport(`${airport.name} (${airport.code})`)
+      setShowToDropdown(false)
+    }
   }
 
   return (
     <div className="container mx-auto p-8 w-12000px h-900px ml-120px">
-      {isLoading === false ? (
+      {!isLoading ? (
         <>
           <div className="w-auto h-[43px] mt-[106px] ml-[431px]">
             <h1 className="text-[36px] font-normal leading-[43.2px] font-neue-montreal whitespace-nowrap">Good afternoon, Brian</h1>
@@ -42,8 +62,17 @@ export default function Home() {
                 <Input 
                   placeholder="Where from?" 
                   className="h-full border-none focus:ring-0 rounded-[12px] bg-transparent pl-10 pr-8"
+                  value={fromAirport}
+                  onClick={() => setShowFromDropdown(true)}
+                  readOnly
                 />
                 <ChevronDown className="absolute right-3 text-gray-400" size={20} />
+                {showFromDropdown && (
+                  <AirportDropdown
+                    airports={airportsData.airports}
+                    onSelect={(airport) => handleSelectAirport('from', airport)}
+                  />
+                )}
               </div>
               <div className="w-[52px] h-[52px] bg-[#F5F7FA] rounded-full flex items-center justify-center">
                 <ArrowLeftRight size={20} className="text-gray-600" />
@@ -53,8 +82,17 @@ export default function Home() {
                 <Input 
                   placeholder="Where to?" 
                   className="h-full border-none focus:ring-0 rounded-[12px] bg-transparent pl-10 pr-8"
+                  value={toAirport}
+                  onClick={() => setShowToDropdown(true)}
+                  readOnly
                 />
                 <ChevronDown className="absolute right-3 text-gray-400" size={20} />
+                {showToDropdown && (
+                  <AirportDropdown
+                    airports={airportsData.airports}
+                    onSelect={(airport) => handleSelectAirport('to', airport)}
+                  />
+                )}
               </div>
               <div className="w-[177px] h-[60px] rounded-[12px] border border-[#E6E8EB] flex items-center relative">
                 <Calendar className="absolute left-3 text-gray-400" size={20} />
@@ -91,7 +129,7 @@ export default function Home() {
           </div>
         </>
       ) : (
-        <SearchInterface />
+        <SearchInterface onClose={handleCloseSearch} />
       )}
     </div>
   )
