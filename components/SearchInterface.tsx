@@ -1,6 +1,7 @@
 import { Check, Loader, Search } from "lucide-react";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
+import { Skeleton } from "./ui/skeleton";
 
 const SearchInterface = () => {
   return (
@@ -42,13 +43,25 @@ const SearchInterface = () => {
 
       {/* Loading line */}
       <div className="h-1 bg-blue-200 relative overflow-hidden">
-        <div className="h-full bg-blue-500 absolute left-0 top-0 w-1/3 animate-[loading_1.5s_ease-in-out_infinite]"></div>
+        <div className="h-full bg-blue-500 absolute left-0 top-0 w-1/3 animate-loading"></div>
       </div>
 
-      {/* Loading content */}
-      <div className="container mx-auto p-8 flex justify-center items-center flex-grow">
-        <div className="bg-white rounded-lg shadow p-6 w-[400px]">
-          <div className="flex flex-col items-center">
+      {/* Loading content with skeleton background */}
+      <div className="container mx-auto p-8 flex justify-center items-center flex-grow relative">
+        {/* Skeleton background */}
+        <div className="absolute inset-0 grid grid-cols-3 gap-4 p-8">
+          {[...Array(9)].map((_, index) => (
+            <div key={index} className="space-y-2">
+              <Skeleton className="h-48 w-full" />
+              <Skeleton className="h-4 w-3/4" />
+              <Skeleton className="h-4 w-1/2" />
+            </div>
+          ))}
+        </div>
+
+        {/* Main loading card */}
+        <div className="absolute w-[323px] h-[300px] top-[204px] left-[438px] bg-white rounded-tl-[16px] shadow-lg p-6 z-10 border-t border-l">
+          <div className="flex flex-col items-center h-full justify-center">
             <div className="w-16 h-16 mb-4">
               {/* Paper plane SVG */}
               <svg

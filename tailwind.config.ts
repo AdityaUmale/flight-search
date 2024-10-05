@@ -9,6 +9,15 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+		keyframes: {
+			loading: {
+			  '0%': { left: '-33.33%' },
+			  '100%': { left: '100%' }
+			}
+		  },
+		  animation: {
+			loading: 'loading 1.5s ease-in-out infinite'
+		  },
 		fontFamily: {
 			'neue-montreal': ['Neue Montreal', 'sans-serif'],
 		  },
