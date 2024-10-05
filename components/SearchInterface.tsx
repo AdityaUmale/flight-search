@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { Check, Loader, Search, X } from "lucide-react";
 import { Input } from "./ui/input";
@@ -10,6 +10,14 @@ interface SearchInterfaceProps {
 }
 
 export default function SearchInterface({ onClose }: SearchInterfaceProps) {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <InnerSearchInterface onClose={onClose} />
+    </Suspense>
+  );
+}
+
+function InnerSearchInterface({ onClose }: SearchInterfaceProps) {
   const searchParams = useSearchParams();
   const from = searchParams.get("from");
   const to = searchParams.get("to");
@@ -132,6 +140,6 @@ export default function SearchInterface({ onClose }: SearchInterfaceProps) {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 }
