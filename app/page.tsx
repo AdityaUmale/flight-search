@@ -85,7 +85,7 @@ export default function Home() {
                 {showFromDropdown && (
                   <AirportDropdown
                     airports={airportsData.airports}
-                    onSelect={(airport) => handleSelectAirport('from', airport)}
+                    onSelect={(airport: Airport) => handleSelectAirport('from', airport)}
                   />
                 )}
               </div>
