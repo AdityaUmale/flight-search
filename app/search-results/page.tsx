@@ -6,6 +6,14 @@ import Image from "next/image";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Search, X } from "lucide-react";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 const SearchResults: React.FC = () => {
   const searchParams = useSearchParams();
@@ -74,7 +82,8 @@ const SearchResults: React.FC = () => {
       {availableFlights.length > 0 ? (
         <>
           <div className="text-sm text-gray-600 mb-4 pt-4">
-            Showing {availableFlights.length} results (hardcoded some data as no live data)
+            Showing {availableFlights.length} results (hardcoded some data as no
+            live data)
           </div>
 
           {availableFlights.map((flight, index) => (
@@ -113,9 +122,94 @@ const SearchResults: React.FC = () => {
                   <div className="font-semibold">
                     AED {parseFloat(flight.price).toFixed(2)}
                   </div>
-                  <button className="bg-[#003E39] text-white px-8 py-2 rounded mt-1 text-sm">
-                    Select
-                  </button>
+                  <Sheet>
+                    <SheetTrigger>
+                      <button className="bg-[#003E39] text-white px-8 py-2 rounded mt-1 text-sm">
+                        Select
+                      </button>
+                    </SheetTrigger>
+                    <SheetContent>
+                      <SheetHeader>
+                        <SheetTitle>Flight Details(hardcoded)</SheetTitle>
+                        <SheetDescription>
+                          <div className="mt-6 border-t-[2px] border-gray-200 pt-6">
+                          <div className="p-6 bg-white rounded-lg shadow-md max-w-2xl mx-auto">
+      <h2 className="text-2xl font-bold mb-6">Flight details</h2>
+      <div className="space-y-6">
+        {/* First Flight */}
+        <div className="flex items-start">
+          <div className="flex-shrink-0 mr-4">
+            <div className="w-6 h-6 border-2 border-gray-300 rounded-full"></div>
+          </div>
+          <div className="flex-grow">
+            <p className="text-sm text-gray-600">Sat 28 Sept • 2:15</p>
+            <p className="font-semibold">DXB • Dubai International Airport</p>
+          </div>
+          <div className="flex items-start ml-4">
+            <Image src="/saudi-arabian-airlines-logo.png" alt="Saudi Arabian Airlines" width={24} height={24} className="mr-2" />
+            <div>
+              <p className="text-sm">Saudi Arabian Airlines • SV553</p>
+              <p className="text-sm text-gray-600">Economy • A330</p>
+              <p className="text-sm text-gray-600">Flight time 3h 45m</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Arrival at RUH */}
+        <div className="flex items-start">
+          <div className="flex-shrink-0 mr-4">
+            <div className="w-6 h-6 border-2 border-gray-300 rounded-full"></div>
+          </div>
+          <div className="flex-grow">
+            <p className="text-sm text-gray-600">Sat 28 Sept • 2:15</p>
+            <p className="font-semibold">RUH • King Khalid International Airport</p>
+          </div>
+        </div>
+
+        {/* Layover */}
+        <div className="ml-10 flex items-center text-gray-600">
+          <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span className="text-sm">Layover 2h 25m</span>
+        </div>
+
+        {/* Second Flight */}
+        <div className="flex items-start">
+          <div className="flex-shrink-0 mr-4">
+            <div className="w-6 h-6 border-2 border-gray-300 rounded-full"></div>
+          </div>
+          <div className="flex-grow">
+            <p className="text-sm text-gray-600">Sat 28 Sept • 2:15</p>
+            <p className="font-semibold">RUH • King Khalid International Airport</p>
+          </div>
+          <div className="flex items-start ml-4">
+            <Image src="/saudi-arabian-airlines-logo.png" alt="Saudi Arabian Airlines" width={24} height={24} className="mr-2" />
+            <div>
+              <p className="text-sm">Saudi Arabian Airlines • SV553</p>
+              <p className="text-sm text-gray-600">Economy • A330</p>
+              <p className="text-sm text-gray-600">Flight time 3h 45m</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Final Destination */}
+        <div className="flex items-start">
+          <div className="flex-shrink-0 mr-4">
+            <div className="w-6 h-6 border-2 border-gray-300 rounded-full"></div>
+          </div>
+          <div className="flex-grow">
+            <p className="text-sm text-gray-600">Sat 28 Sept • 2:15</p>
+            <p className="font-semibold">CDG • Paris - Charles de Gualle Airport</p>
+          </div>
+        </div>
+      </div>
+    </div>
+                          </div>
+                        </SheetDescription>
+                      </SheetHeader>
+                    </SheetContent>
+                  </Sheet>
                 </div>
               </div>
             </div>
@@ -130,8 +224,6 @@ const SearchResults: React.FC = () => {
             Please try different dates or locations.
           </p>
         </div>
-       
-
       )}
     </div>
   );
