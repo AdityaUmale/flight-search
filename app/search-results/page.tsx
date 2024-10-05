@@ -52,7 +52,7 @@ const SearchResults: React.FC = () => {
                 {to}
               </span>
               <span className="font-['Neue_Montreal'] text-base font-normal leading-4 tracking-[0.05em] text-gray-400 ml-1 truncate">
-                {airportNames[to] || ""}
+                {to ? airportNames[to as keyof typeof airportNames] || "" : ""}
               </span>
             </div>
             <div className="w-px h-6 bg-[#E6E8EB]" />
