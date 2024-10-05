@@ -39,7 +39,13 @@ export default function Home() {
     setIsLoading(false)
   }
 
-  const handleSelectAirport = (type, airport) => {
+  interface Airport {
+    name: string;
+    code: string;
+  }
+  
+
+  const handleSelectAirport = (type : 'from' | 'to', airport : Airport) => {
     if (type === 'from') {
       setFromAirport(`${airport.name} (${airport.code})`)
       setShowFromDropdown(false)
