@@ -1,7 +1,19 @@
-// components/AirportDropdown.js
+// components/AirportDropdown.tsx
 import React from 'react';
 
-const AirportDropdown = ({ airports, onSelect }) => {
+type Airport = {
+  code: string;
+  name: string;
+  city: string;
+  country: string;
+};
+
+interface AirportDropdownProps {
+  airports: Airport[];
+  onSelect: (airport: Airport) => void;
+}
+
+const AirportDropdown: React.FC<AirportDropdownProps> = ({ airports, onSelect }) => {
   return (
     <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg max-h-60 overflow-y-auto">
       {airports.map((airport) => (
