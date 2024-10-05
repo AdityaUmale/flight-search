@@ -121,8 +121,9 @@ const SearchResults: React.FC = () => {
                 <div className="text-right">
                   <div className="text-xs text-gray-500">from</div>
                   <div className="font-semibold">
-                    AED {parseFloat(flight.price).toFixed(2)}
+                    AED {flight.price.toFixed(2)}
                   </div>
+
                   <Sheet>
                     <SheetTrigger>
                       <button className="bg-[#003E39] text-white px-8 py-2 rounded mt-1 text-sm">
