@@ -25,16 +25,16 @@ function InnerSearchInterface({ onClose }: SearchInterfaceProps) {
   const to = searchParams.get("to");
   const date = searchParams.get("date") || "Jun 25 - Jul 2";
 
-  // Airport names mapping
+
   const airportNames: { [key: string]: string } = {
     CDG: "Paris Charles De Gau...",
     DXB: "Dubai International...",
-    // Add more as needed
+
   };
 
   return (
     <div className="flex flex-col h-screen">
-      {/* Dynamic Navbar */}
+     
       <div className="flex justify-between items-center pb-6 pt-6 border-b-[1px] border-gray-200">
         <div className="flex items-center w-[662px] h-[50px] bg-white rounded-full border border-[#E6E8EB] px-6 py-3 mb-4">
           <div className="flex-1 flex items-center gap-4">

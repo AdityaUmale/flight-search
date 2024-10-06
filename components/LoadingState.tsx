@@ -1,4 +1,4 @@
-// components/LoadingState.tsx
+
 import { Check, Loader } from 'lucide-react';
 
 const LoadingState = () => {
@@ -6,7 +6,7 @@ const LoadingState = () => {
     <div className="bg-white rounded-lg shadow p-6 w-[400px] mx-auto mt-10">
       <div className="flex flex-col items-center">
         <div className="w-16 h-16 mb-4">
-          {/* Replace with your paper plane SVG */}
+          
           <svg>...</svg>
         </div>
         <div className="space-y-2">

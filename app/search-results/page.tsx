@@ -21,11 +21,11 @@ const SearchResults: React.FC = () => {
   const to = searchParams.get("to");
   const date = searchParams.get("date") || "Jun 25 - Jul 2";
 
-  // You might want to create a mapping of airport codes to full names
+  
   const airportNames = {
     CDG: "Paris Charles De Gau...",
     DXB: "Dubai International...",
-    // Add more as needed
+  
   };
 
   const availableFlights = flightConnections.connections.filter(
